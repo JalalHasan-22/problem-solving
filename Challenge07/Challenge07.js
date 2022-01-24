@@ -254,35 +254,37 @@ let data = {
 //  1- This is not the exact data you will be getting every time and the solution should be dynamic
 //  2- You need to round the average to the nearest lower number
 
-const classesAvg = (data) => {
-  // write your code here
-  data.grades.forEach((grade) =>
-    grade.classes.forEach((cl) => {
-      cl.avg = Math.floor(
-        cl.classScores.reduce((acc, mark) => {
-          return (acc += mark);
-        }, 0) / cl.classScores.length
-      );
-    })
-  );
-  return data;
-};
-
-// With for loop only
 // const classesAvg = (data) => {
-//   for (let i = 0; i < data.grades.length; i++) {
-//     for (let j = 0; j < data.grades[i].classes.length; j++) {
-//       let sum = 0;
-//       data.grades[i].classes[j].avg;
-//       for (let k = 0; k < data.grades[i].classes[j].classScores.length; k++) {
-//         sum += data.grades[i].classes[j].classScores[k];
-//       }
-//       data.grades[i].classes[j].avg = Math.floor(
-//         sum / data.grades[i].classes[j].classScores.length
+//   // write your code here
+//   data.grades.forEach((grade) =>
+//     grade.classes.forEach((cl) => {
+//       cl.avg = Math.floor(
+//         cl.classScores.reduce((acc, mark) => {
+//           return (acc += mark);
+//         }, 0) / cl.classScores.length
 //       );
-//     }
-//   }
+//     })
+//   );
 //   return data;
 // };
+
+// With for loop only
+
+const classesAvg = (data) => {
+  // write your code here
+  for (let i = 0; i < data.grades.length; i++) {
+    for (let j = 0; j < data.grades[i].classes.length; j++) {
+      let sum = 0;
+      data.grades[i].classes[j].avg;
+      for (let k = 0; k < data.grades[i].classes[j].classScores.length; k++) {
+        sum += data.grades[i].classes[j].classScores[k];
+      }
+      data.grades[i].classes[j].avg = Math.floor(
+        sum / data.grades[i].classes[j].classScores.length
+      );
+    }
+  }
+  return data;
+};
 
 module.exports = { objLat, cvFormatter, applicationsStatics, classesAvg };
