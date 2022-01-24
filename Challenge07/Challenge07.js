@@ -142,6 +142,8 @@ const applicationsStatics = (arr) => {
     if (applicant.tech === "Python") result.python_Devs++;
     if (applicant.firstName === null && applicant.lastName === null)
       result.rejectedApplicants++;
+    if (applicant.firstName === "" && applicant.lastName === "")
+      result.rejectedApplicants++;
     if (applicant.yearsOfExperience <= 1) result.rejectedApplicants++;
   });
   return result;
