@@ -105,11 +105,10 @@ const roundDecimals = (arr) => {
 const employeesBonus = (arr) => {
   // write your code here
   arr.map((entry) => {
-    const salaryNumber = +entry.salary.slice(0, -1);
     if (entry.workHours > 8) {
-      entry.salary = `${salaryNumber + 100}$`;
+      entry.salary = `${parseInt(entry.salary) + 100}$`;
     } else {
-      entry.salary = `${salaryNumber + 50}$`;
+      entry.salary = `${parseInt(entry.salary) + 50}$`;
     }
   });
   return arr;
